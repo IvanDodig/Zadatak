@@ -1,0 +1,14 @@
+{
+	"App": {
+		"web-server": {
+			"host": "localhost",
+			"port": 3000
+		}
+	},
+	"DB": {
+		"connString": "mongodb+srv://ivan:test1234@cluster0.c6qan.mongodb.net/dbo?retryWrites=true&w=majority"
+	},
+	"Paths": {
+		"data": "/Podaci/podaci.csv"
+	}
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/main.css" />
+		<title>COMBIS</title>
+	</head>
+	<body>
+		<div class="content-wrap">
+			<header>
+				<h1>COMBIS Zadatak</h1>
+			</header>
+
+			<div class="container">
+				<table class="<%= post %>">
+					<!-- Ime,Prezime,Poštanski br,Grad, Telefon. -->
+					<thead>
+						<tr class="table-header">
+							<th>Ime</th>
+							<th>Prezime</th>
+							<th>Grad</th>
+							<th>Poštanski broj</th>
+							<th>Telefon</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% persons.forEach(l => { let err = l.err ? l.err : "";%>
+						<tr>
+							<td><%= l.name %></td>
+							<td><%= l.lastName %></td>
+							<td><%= l.city %></td>
+							<td class="<%=err %>"><%= l.postNumber %></td>
+							<td><%= l.phoneNumber %></td>
+							<td style="color: <%= l.color %>"><%= l.status %> </td>
+						</tr>
+						<%}); %>
+					</tbody>
+				</table>
+
+				<div class="buttons">
+					<form action="/create" method="GET">
+						<button class="btn btn-read"> Učitaj podatke </button>
+					</form>
+					<form action="/create" method="POST">
+						<button class="btn btn-save"> Spremi podatke </button>
+					</form>
+				</div>
+			</div>
+
+			<footer>Copyright &copy; 2020 Ivan Dodig</footer>
+		</div>
+	</body>
+</html>

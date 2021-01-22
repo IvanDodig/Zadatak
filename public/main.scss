@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
+
+@import "variables";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Rubik", sans-serif;
+}
+/* MAIN STYLES */
+.btn {
+	padding: 15px 30px;
+	min-width: 150px;
+	border-radius: 5px;
+	margin: 0 15px;
+	background-color: $primary;
+	color: white;
+	border: none;
+	height: 100%;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.none {
+	display: none;
+}
+
+.error {
+	/* 	background-color: red; */
+	background-color: red;
+	color: white;
+	position: relative;
+	&:hover::after {
+		content: "Neispravan poštanski broj";
+		position: absolute;
+		height: 30px;
+		background-color: $primary;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		color: white;
+		text-align: center;
+		padding: 5px 15px;
+		box-sizing: border-box;
+		font-size: small;
+	}
+}
+
+.content-wrap {
+	min-height: calc(100vh - 90px);
+	position: relative;
+}
+/* HEADER STYLES */
+header {
+	background-color: $header;
+	height: 70px;
+	color: $text-light;
+	text-align: center;
+	padding-top: 15px;
+}
+
+/* CONTAINER STYLES */
+.container {
+	table {
+		border-collapse: collapse;
+		margin: 25px auto;
+		font-size: 0.9em;
+		font-family: sans-serif;
+		max-width: 100vw;
+		min-width: 400px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+		border-radius: 5px 5px 0 0;
+		overflow: hidden;
+
+		@media only screen and (max-width: 460px) {
+			min-width: 0;
+			width: 300px;
+		}
+
+		th,
+		td {
+			min-width: 150px;
+			padding: 12px 20px;
+			@media only screen and (max-width: 1020px) {
+				min-width: 0;
+			}
+			@media only screen and (max-width: 766px) {
+				padding: 12px 10px;
+				font-size: 12px;
+			}
+		}
+
+		thead tr {
+			background-color: $primary;
+			color: #ffffff;
+			text-align: left;
+			height: 50px;
+		}
+		tbody tr {
+			border-bottom: 1px solid #dddddd;
+			color: $text-dark;
+			background-color: white;
+		}
+		tbody tr:nth-of-type(even) {
+			background-color: #f3f3f3;
+			color: $primary;
+		}
+		tbody tr:last-of-type {
+			border-bottom: 2px solid $primary;
+		}
+		.status-msg {
+			color: green;
+		}
+	}
+
+	.buttons {
+		display: flex;
+		justify-content: center;
+		margin-top: 50px;
+	}
+}
+
+/* FOOTER STYLES */
+footer {
+	background-color: $footer;
+	height: 70px;
+	position: absolute;
+	width: 100%;
+	bottom: -90px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 300;
+	padding-top: 25px;
+	color: $text-light;
+}
+
+// transform table
+@media only screen and (max-width: 460px) {
+	/* Force table to not be like tables anymore */
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr {
+		border: 1px solid #ccc;
+	}
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50% !important;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 11px;
+		left: 26px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before {
+		content: "Ime:";
+	}
+	td:nth-of-type(2):before {
+		content: "Prezime:";
+	}
+	td:nth-of-type(3):before {
+		content: "Grad:";
+	}
+	td:nth-of-type(4):before {
+		content: "Poštanski broj:";
+	}
+	td:nth-of-type(5):before {
+		content: "Telefon:";
+	}
+	td:nth-of-type(6):before {
+		content: "Status:";
+	}
+}
